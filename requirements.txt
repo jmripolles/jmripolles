@@ -1,0 +1,20 @@
+# Web Scraping
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+selenium>=4.15.0
+lxml>=4.9.3
+yfinance>=0.2.32
+
+# GUI
+tkinter-tooltip>=2.1.0
+
+# Data Processing
+pandas>=2.1.0
+numpy>=1.24.0
+
+# Visualization
+matplotlib>=3.8.0
+Pillow>=10.1.0
+
+# Web Driver Manager (para Selenium)
+webdriver-manager>=4.0.1
