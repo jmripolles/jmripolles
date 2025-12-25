@@ -16,6 +16,25 @@ Aplicación gráfica desarrollada en Python para obtener y analizar datos de fon
 - **Exportación de datos**: Exporta resultados a CSV y Excel
 - **Guardado de gráficos**: Guarda visualizaciones en PNG o PDF
 
+## 🚀 Inicio Rápido - Versión Standalone (UN SOLO ARCHIVO)
+
+**¿Quieres ejecutar la aplicación sin complicaciones?** Usa la versión standalone:
+
+```bash
+# 1. Instalar dependencias mínimas
+pip install yfinance pandas matplotlib
+
+# 2. Ejecutar el archivo único
+python investment_fund_scraper_standalone.py
+```
+
+**¡Eso es todo!** El archivo `investment_fund_scraper_standalone.py` contiene toda la aplicación en un solo archivo. No necesitas clonar el repositorio completo ni preocuparte por la estructura de carpetas.
+
+### Versiones Disponibles
+
+- **`investment_fund_scraper_standalone.py`**: Versión todo-en-uno, ideal para ejecución local rápida
+- **Versión modular** (carpeta `src/`): Versión organizada en módulos, ideal para desarrollo y extensión
+
 ## Capturas de Pantalla 📸
 
 La aplicación cuenta con 3 pestañas principales:
@@ -75,6 +94,12 @@ sudo pacman -S tk
 
 ### Iniciar la aplicación
 
+**Versión Standalone (un solo archivo):**
+```bash
+python investment_fund_scraper_standalone.py
+```
+
+**Versión Modular:**
 ```bash
 python main.py
 ```
@@ -126,19 +151,21 @@ python main.py
 
 ```
 investment-fund-scraper/
-├── main.py                          # Punto de entrada de la aplicación
-├── requirements.txt                 # Dependencias del proyecto
-├── README.md                        # Este archivo
-├── LICENSE                          # Licencia MIT
-└── src/
+├── investment_fund_scraper_standalone.py  # ⭐ VERSIÓN TODO-EN-UNO (recomendado)
+├── main.py                                # Punto de entrada versión modular
+├── example_usage.py                       # Ejemplos de uso sin GUI
+├── requirements.txt                       # Dependencias del proyecto
+├── README.md                              # Este archivo
+├── LICENSE                                # Licencia MIT
+└── src/                                   # Versión modular
     ├── __init__.py
     ├── gui/
     │   ├── __init__.py
-    │   └── main_window.py          # Interfaz gráfica principal
+    │   └── main_window.py                # Interfaz gráfica principal
     └── scrapers/
         ├── __init__.py
-        ├── yahoo_finance_scraper.py    # Scraper para Yahoo Finance
-        └── investing_scraper.py        # Scraper para Investing.com
+        ├── yahoo_finance_scraper.py      # Scraper para Yahoo Finance
+        └── investing_scraper.py          # Scraper para Investing.com
 ```
 
 ## Tecnologías Utilizadas 🛠️
@@ -221,7 +248,22 @@ En Linux, instala tkinter según tu distribución (ver sección de Instalación)
 
 Ejecuta desde terminal para ver mensajes de error:
 ```bash
+# Versión standalone
+python investment_fund_scraper_standalone.py
+
+# Versión modular
 python main.py
+```
+
+### Usar solo la funcionalidad básica
+
+Si tienes problemas instalando todas las dependencias, la versión standalone puede funcionar con un mínimo de paquetes:
+```bash
+# Instalación mínima (solo Yahoo Finance)
+pip install yfinance pandas matplotlib
+
+# Esto te permitirá usar todas las funciones de Yahoo Finance
+python investment_fund_scraper_standalone.py
 ```
 
 ## Contribuciones 🤝
