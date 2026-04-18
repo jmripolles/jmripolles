@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <title>Recorder — IES Maestrat Reel</title>
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      width: 1080px; height: 1920px;
+      overflow: hidden;
+      background: #f4f1e8;
+    }
+    * { box-sizing: border-box; }
+    #root {
+      width: 1080px; height: 1920px;
+      position: relative; overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="vendor/react.development.js"></script>
+<script src="vendor/react-dom.development.js"></script>
+<script src="vendor/babel.min.js"></script>
+
+<script type="text/babel" src="animations.jsx"></script>
+<script type="text/babel" src="scenes.vertical.jsx"></script>
+
+<script type="text/babel">
+  const DURATION = 62;
+
+  let _globalSetTime = null;
+
+  function RecorderRoot() {
+    const [time, setTime] = React.useState(0);
+
+    React.useLayoutEffect(() => {
+      _globalSetTime = setTime;
+    });
+
+    React.useEffect(() => {
+      // Expose setter — uses flushSync for synchronous DOM commit
+      window.__setVideoTime = (t) => {
+        ReactDOM.flushSync(() => _globalSetTime(t));
+      };
+      window.__ready = true;
+    }, []);
+
+    const ctx = React.useMemo(() => ({
+      time,
+      duration: DURATION,
+      playing: false,
+      setTime,
+      setPlaying: () => {},
+    }), [time]);
+
+    return (
+      <TimelineContext.Provider value={ctx}>
+        <div style={{
+          position: 'relative',
+          width: 1080,
+          height: 1920,
+          background: '#f4f1e8',
+          overflow: 'hidden',
+        }}>
+          <VScene1 />
+          <VScene2 />
+          <VScene3 />
+          <VScene4 />
+          <VScene5 />
+          <VScene6 />
+          <VScene7 />
+        </div>
+      </TimelineContext.Provider>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<RecorderRoot />);
+</script>
+</body>
+</html>
